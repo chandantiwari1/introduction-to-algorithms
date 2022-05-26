@@ -1,0 +1,9 @@
+1.2-1
+Give an example of an application that requires algorithmic content at the application level , and dicuss the function of the algorithms involved.
+
+solution: this type of application's are the genereally web application ,
+we may consider an example of the google map , it requires algorithmic content at the application level algorithmic content means they requires some algorithmst
+to process the application's further flow .
+like taking the user's location and finding the shortest path between two points.
+
+1.2-2
