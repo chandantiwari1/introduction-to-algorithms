@@ -7,3 +7,176 @@ to process the application's further flow .
 like taking the user's location and finding the shortest path between two points.
 
 1.2-2
+Suppose we are comparing the implementations of the insertion sort and the merge sort on the same machine for inputs of size n, insertion sort runs in 8n^2
+steps. while merge sort runs in 64n lnn steps. for which values of n does insertions sort beat merge sort >
+
+solution:
+
+            for the insertions sort the time complexity is 
+            8n^2 <64 n*ln n
+            n^2<8*n*ln n
+            n<8*ln n
+            2^(n/8) < n
+            now take different values of n
+            ​
+  
+n=8
+n=16
+n=32
+n=64
+​
+  
+​
+  
+⇒2 
+8/8
+ 
+⇒2 
+16/8
+ 
+⇒2 
+32/8
+ 
+⇒2 
+64/8
+ 
+​
+  
+​
+  
+=2
+=4
+=16
+=256
+​
+  
+​
+  
+<n
+<n
+<n
+>n
+​
+ 
+Note that we don’t need to continue anymore as we have found an approximate range of values for nn where merge sort starts to beat insertion sort; somewhere between 32 and 64. Let’s do what we were doing but now we are going to try middle value of either range, repeatedly (or in other words, binary search, if you have been reading ahead).
+
+\begin{alignedat}{2} &n = 48 \Rightarrow 2^{48/8} = 64 &&> n \\ &n = 40 \Rightarrow 2^{40/8} = 32 &&< n \\ &n = 44 \Rightarrow 2^{44/8} = 44.8 &&> n \\ &n = 42 \Rightarrow 2^{42/8} = 38.4 &&< n \\ &n = 43 \Rightarrow 2^{43/8} = 42.4 &&< n \end{alignedat}
+​
+  
+n=48⇒2 
+48/8
+ =64
+n=40⇒2 
+40/8
+ =32
+n=44⇒2 
+44/8
+ =44.8
+n=42⇒2 
+42/8
+ =38.4
+n=43⇒2 
+43/8
+ =42.4
+​
+  
+​
+  
+>n
+<n
+>n
+<n
+<n
+​
+
+            this will come approximately at n=44;
+            when insertions sort beats the merge sort.
+
+1.2-3
+what is the smallest value of n such that an algorithms whose running time is 100n^2 rybs faster 
+than an algorithm whose running time is 2^n on the same machine?
+
+solution :
+       CALCULATION
+Intuitively we can realize that A (quadratic time complexity) will run much faster than B (exponential time complexity) for very large values of nn.
+
+Let’s start checking from n = 1n=1 and go up for values of nn which are power of 22 to see where that happens.
+
+\begin{alignedat}{4} &n = 1 &&\Rightarrow 100 \times 1^2 &&= 100 &&> 2^n \\ &n = 2 &&\Rightarrow 100 \times 2^2 &&= 400 &&> 2^n \\ &n = 4 &&\Rightarrow 100 \times 4^2 &&= 1600 &&> 2^n \\ &n = 8 &&\Rightarrow 100 \times 8^2 &&= 6400 &&> 2^n \\ &n = 16 &&\Rightarrow 100 \times 16^2 &&= 25600 &&< 2^n \end{alignedat}
+​
+  
+n=1
+n=2
+n=4
+n=8
+n=16
+​
+  
+​
+  
+⇒100×1 
+2
+ 
+⇒100×2 
+2
+ 
+⇒100×4 
+2
+ 
+⇒100×8 
+2
+ 
+⇒100×16 
+2
+ 
+​
+  
+​
+  
+=100
+=400
+=1600
+=6400
+=25600
+​
+  
+​
+  
+>2 
+n
+ 
+>2 
+n
+ 
+>2 
+n
+ 
+>2 
+n
+ 
+<2 
+n
+ 
+​
+ 
+Somewhere between 8 and 16, A starts to run faster than B. Let’s do what we were doing but now we are going to try middle value of the range, repeatedly (binary search).
+
+n = 12 \Rightarrow 100 \times 12^2 = 14400 > 2^n \\ n = 14 \Rightarrow 100 \times 14^2 = 19600 > 2^n \\ n = 15 \Rightarrow 100 \times 15^2 = 22500 < 2^n
+n=12⇒100×12 
+2
+ =14400>2 
+n
+ 
+n=14⇒100×14 
+2
+ =19600>2 
+n
+ 
+n=15⇒100×15 
+2
+ =22500<2 
+n
+ 
+So, at n = 15n=15, A starts to run faster than B.
+
+
